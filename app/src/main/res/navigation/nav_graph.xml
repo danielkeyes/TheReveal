@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainPageFragment">
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="dev.danielkeyes.thereveal.SplashScreenFragment"
+        android:label="fragment_splash_screen" />
+
+    <fragment
+        android:id="@+id/generateRevealCodeFragment"
+        android:name="dev.danielkeyes.thereveal.GenerateRevealCodeFragment"
+        android:label="fragment_generate_reveal_code" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/mainPageFragment"
+        android:name="dev.danielkeyes.thereveal.MainPageFragment"
+        android:label="fragment_generate_reveal_code">
+        <deepLink
+            app:uri="https://www.danielkeyes.dev/thereveal?revealcode={revealCode}"
+            android:autoVerify="true"/>
+        <argument
+            android:name="revealCode"
+            android:defaultValue=""
+            app:argType="string" />
+        <action
+            android:id="@+id/action_mainPageFragment_to_generateRevealCodeFragment"
+            app:destination="@id/generateRevealCodeFragment" />
+        <action
+            android:id="@+id/action_mainPageFragment_to_revealFragment"
+            app:destination="@id/revealFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/revealFragment"
+        android:name="dev.danielkeyes.thereveal.RevealFragment"
+        android:label="fragment_reveal">
+        <argument
+            android:name="revealCode"
+            app:argType="string"
+            android:defaultValue="@null"
+            app:nullable="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/aboutTheRevealFragmnet"
+        android:name="dev.danielkeyes.thereveal.AboutTheRevealFragment"
+        android:label="fragment_generate_reveal_code" />
+</navigation>

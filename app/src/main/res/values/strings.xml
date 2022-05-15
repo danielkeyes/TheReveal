@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">The Reveal</string>
+    <string name="site_url">www.danielkeyes.dev</string>
+    <string name="site_subdirectory">thereveal</string>
+</resources>
